@@ -1,0 +1,178 @@
+/* ----------------------------- */
+/* GENERAL PAGE STYLES */
+body {
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Top Navigation */
+.top-nav {
+  background: #ff66a3;
+  color: white;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Banner */
+.banner {
+  text-align: center;
+  padding: 16px;
+}
+.banner img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+.banner-desc {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Section headings */
+section h2 {
+  margin-left: 12px;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Input fields */
+input[type=text], input[type=email] {
+  width: calc(100% - 24px);
+  padding: 10px;
+  margin: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ffb3d1;
+  font-size: 14px;
+}
+
+/* ----------------------------- */
+/* DIAMOND PACKAGES GRID */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin: 12px;
+}
+
+/* Individual package card */
+.package {
+  border-radius: 12px;
+  padding: 16px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* price sticks at bottom */
+  height: 180px; /* uniform height */
+}
+.package img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 8px auto;
+}
+.package .package-name {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 12px; /* space between name and price */
+  color: #333;
+}
+.package .package-price {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ff3385;
+  margin-top: auto; /* push to bottom */
+}
+
+/* Hover & selection */
+.package.selected {
+  border-color: #ff3385;
+  box-shadow: 0 6px 15px rgba(255,51,133,0.4);
+}
+.package:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 6px 15px rgba(255,51,133,0.3);
+}
+.package:active {
+  transform: scale(0.97);
+}
+
+/* ----------------------------- */
+/* PAYMENT BUTTONS */
+.payment-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 12px;
+  flex-wrap: wrap;
+}
+.payment-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ffb3d1;
+  background: #ffe6f0;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+  font-size: 14px;
+}
+.payment-btn:hover {
+  background: #ffb3d1;
+  border-color: #ff66a3;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(255,51,133,0.3);
+}
+.payment-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(255,51,133,0.2);
+}
+.payment-btn.selected {
+  background: #ff66a3;
+  color: white;
+}
+
+/* ----------------------------- */
+/* BUY NOW BUTTON */
+#buyNowBtn {
+  background: #ff66a3;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: calc(100% - 24px);
+  margin: 16px 12px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+#buyNowBtn:hover {
+  background: #ff3385;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255,51,133,0.4);
+}
+#buyNowBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(255,51,133,0.3);
+}
+
+/* ----------------------------- */
+/* RESPONSIVE ADJUSTMENTS */
+@media screen and (max-width: 480px) {
+  .package img {
+    width: 80px;
+    height: 80px;
+  }
+  .package {
+    height: 160px;
+  }
+}

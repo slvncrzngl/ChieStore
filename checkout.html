@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chie Store - Checkout 🌸</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- The semi-transparent background to simulate modal -->
+<div id="checkoutModal">
+  <div class="modal-card">
+    <h3>Confirm Your Order 🌸</h3>
+    <p id="game"></p>
+    <p id="player"></p>
+    <p id="server"></p>
+    <p id="package"></p>
+    <p id="price"></p>
+    <p>Payment Method: <span id="payment"></span></p>
+    <div class="modal-buttons">
+      <button id="cancelBtn">Cancel</button>
+      <button id="payNowBtn">Pay Now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Get URL parameters
+  const params = new URLSearchParams(window.location.search)
+  const data = {
+    game: params.get("game"),
+    player: params.get("player"),
+    server: params.get("server"),
+    package: params.get("package"),
+    price: params.get("price"),
+    payment: params.get("payment")
+  }
+
+  // Fill modal info
+  document.getElementById("game").innerText = `Game: ${data.game}`
+  document.getElementById("player").innerText = `Player ID: ${data.player}`
+  document.getElementById("server").innerText = `Server: ${data.server}`
+  document.getElementById("package").innerText = `Package: ${data.package}`
+  document.getElementById("price").innerText = `Price: ₱${data.price}`
+  document.getElementById("payment").innerText = data.payment
+
+  const modal = document.getElementById("checkoutModal")
+  const cancelBtn = document.getElementById("cancelBtn")
+  const payNowBtn = document.getElementById("payNowBtn")
+
+  // Cancel button goes back to game page
+  cancelBtn.onclick = () => {
+    window.history.back()
+  }
+
+  // Pay Now confirms order
+  payNowBtn.onclick = () => {
+    alert("Order Confirmed! 🌸")
+    window.location.href = `${data.game.toLowerCase()}.html`
+  }
+</script>
+
+</body>
+</html>

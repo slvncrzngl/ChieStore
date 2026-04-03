@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chie Store - MLBB Top-Up 🌸</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ----------------------------- */
+/* GENERAL STYLES */
+body {
+  font-family: Arial, sans-serif;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav {
+  background:#ff66a3;
+  color:white;
+  padding:12px 16px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* Banner */
+.banner {
+  text-align:center;
+  padding:16px;
+}
+.banner img {
+  width:100%;
+  max-width:600px;
+  border-radius:12px;
+}
+.banner-desc {
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* Input sections */
+section h2 {
+  margin-left:12px;
+  font-size:16px;
+}
+input[type=text], input[type=email] {
+  width: calc(100% - 24px);
+  padding:10px;
+  margin:8px 12px;
+  border-radius:8px;
+  border:1px solid #ffb3d1;
+}
+
+/* ----------------------------- */
+/* DIAMOND PACKAGES GRID */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin:12px;
+}
+
+.package {
+  border-radius:12px;
+  padding:16px 8px;
+  text-align:center;
+  cursor:pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+}
+.package img {
+  width:100px;
+  height:100px;
+  object-fit:contain;
+  margin-bottom:8px;
+}
+.package .package-name {
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:4px;
+  color:#333;
+}
+.package .package-price {
+  font-weight:bold;
+  font-size:16px;
+  color:#ff3385;
+}
+.package.selected {
+  border-color:#ff3385;
+  box-shadow:0 6px 15px rgba(255,51,133,0.4);
+}
+.package:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow:0 6px 15px rgba(255,51,133,0.3);
+}
+.package:active {
+  transform: scale(0.97);
+}
+
+/* ----------------------------- */
+/* PAYMENT BUTTONS */
+.payment-buttons {
+  display:flex;
+  gap:12px;
+  margin:12px;
+}
+.payment-btn {
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ffb3d1;
+  background:#ffe6f0;
+  cursor:pointer;
+  transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+}
+.payment-btn:hover {
+  background:#ffb3d1;
+  border-color:#ff66a3;
+  transform: scale(1.03);
+  box-shadow:0 4px 12px rgba(255,51,133,0.3);
+}
+.payment-btn:active {
+  transform: scale(0.97);
+  box-shadow:0 2px 6px rgba(255,51,133,0.2);
+}
+.payment-btn.selected {
+  background:#ff66a3;
+  color:white;
+}
+
+/* ----------------------------- */
+/* BUY NOW BUTTON */
+#buyNowBtn {
+  background:#ff66a3;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+  display:block;
+  width: calc(100% - 24px);
+  margin:16px 12px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+#buyNowBtn:hover {
+  background:#ff3385;
+  transform: scale(1.05);
+  box-shadow:0 6px 15px rgba(255,51,133,0.4);
+}
+#buyNowBtn:active {
+  transform: scale(0.98);
+  box-shadow:0 3px 8px rgba(255,51,133,0.3);
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">Chie Store 🌸</header>
+
+<section class="banner">
+  <img src="assets/bannerml.png" alt="MLBB Banner">
+  <p class="banner-desc">Top up your Mobile Legends: Bang Bang diamonds quickly and securely!</p>
+</section>
+
+<section class="player-info">
+  <h2>Enter Player Information</h2>
+  <input type="text" id="playerID" placeholder="User ID">
+  <input type="text" id="serverID" placeholder="Server ID">
+</section>
+
+<section class="diamond-packages">
+  <h2>Select Diamond Package</h2>
+  <div class="packages-grid">
+    <div class="package" data-name="86 Diamonds" data-price="49" style="background:#ffd6e8">
+      <img src="assets/diamond1.png" alt="86 Diamonds">
+      <span class="package-name">86 Diamonds</span>
+      <span class="package-price">₱49</span>
+    </div>
+    <div class="package" data-name="172 Diamonds" data-price="95" style="background:#ffcce0">
+      <img src="assets/diamond2.png" alt="172 Diamonds">
+      <span class="package-name">172 Diamonds</span>
+      <span class="package-price">₱95</span>
+    </div>
+    <div class="package" data-name="257 Diamonds" data-price="140" style="background:#ffb3d1">
+      <img src="assets/diamond3.png" alt="257 Diamonds">
+      <span class="package-name">257 Diamonds</span>
+      <span class="package-price">₱140</span>
+    </div>
+    <div class="package" data-name="344 Diamonds" data-price="190" style="background:#ff99c2">
+      <img src="assets/diamond4.png" alt="344 Diamonds">
+      <span class="package-name">344 Diamonds</span>
+      <span class="package-price">₱190</span>
+    </div>
+  </div>
+</section>
+
+<section class="payment-method">
+  <h2>Select Payment Method</h2>
+  <div class="payment-buttons">
+    <button class="payment-btn" data-payment="GCash">GCash</button>
+    <button class="payment-btn" data-payment="PayPal">PayPal</button>
+    <button class="payment-btn" data-payment="Maya">Maya</button>
+  </div>
+</section>
+
+<section class="email-section">
+  <h2>Enter Email (Optional)</h2>
+  <input type="email" id="email" placeholder="example@email.com">
+</section>
+
+<section class="buy-now-section">
+  <button id="buyNowBtn">Buy Now</button>
+</section>
+
+<script>
+// -----------------------------
+// XSS PROTECTION & INTERACTIVITY
+// -----------------------------
+function escapeHTML(str) {
+  return str.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const packages = document.querySelectorAll('.package');
+  const paymentBtns = document.querySelectorAll('.payment-btn');
+  const buyNowBtn = document.getElementById('buyNowBtn');
+
+  let selectedPackage = null;
+  let selectedPayment = null;
+
+  // Package selection
+  packages.forEach(pkg => {
+    pkg.addEventListener('click', () => {
+      selectedPackage = pkg.dataset;
+      packages.forEach(p => p.classList.remove('selected'));
+      pkg.classList.add('selected');
+    });
+  });
+
+  // Payment selection
+  paymentBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedPayment = btn.dataset.payment;
+      paymentBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    });
+  });
+
+  // Buy Now
+  buyNowBtn.addEventListener('click', () => {
+    const playerID = escapeHTML(document.getElementById('playerID').value.trim());
+    const serverID = escapeHTML(document.getElementById('serverID').value.trim());
+    const email = escapeHTML(document.getElementById('email').value.trim());
+
+    if (!playerID || !serverID || !selectedPackage || !selectedPayment) {
+      alert("Please complete all required fields and selections.");
+      return;
+    }
+
+    alert(`Order Summary 🌸
+User ID: ${playerID}
+Server ID: ${serverID}
+Package: ${selectedPackage.name} - ₱${selectedPackage.price}
+Payment Method: ${selectedPayment}
+${email ? 'Email: ' + email : ''}
+
+Thank you for topping up!`);
+
+    // Reset selections
+    selectedPackage = null;
+    selectedPayment = null;
+    packages.forEach(p => p.classList.remove('selected'));
+    paymentBtns.forEach(b => b.classList.remove('selected'));
+    document.getElementById('playerID').value = '';
+    document.getElementById('serverID').value = '';
+    document.getElementById('email').value = '';
+  });
+});
+</script>
+</body>
+</html>
