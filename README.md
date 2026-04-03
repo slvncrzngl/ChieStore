@@ -1,2 +1,2 @@
 # ChieStore
-mlbb discounted diamonds / ORDER FORMS
+MLBB discounted diamonds / ORDER FORMS
